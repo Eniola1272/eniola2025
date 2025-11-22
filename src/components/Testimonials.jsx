@@ -1,6 +1,7 @@
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
-import { useState } from 'react';
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import { useState } from "react";
 
 const testimonials = [
   {
@@ -50,26 +51,26 @@ const testimonials = [
     company: "TechInnovate",
     image: "/images/testimonial-6.jpg",
     text: "As a non-technical founder, I was nervous about building our web platform, but Eniola made the process incredibly smooth. He explained complex technical concepts in simple terms and always kept me informed. The website he delivered is not only technically solid but also user-friendly and scalable. His expertise and client-focused approach are unmatched!",
-  }
+  },
 ];
 
 const Testimonials = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   useGSAP(() => {
-    gsap.from('.testimonial-card', {
+    gsap.from(".testimonial-card", {
       opacity: 0,
       y: 50,
       duration: 0.8,
-      ease: 'power2.out',
+      ease: "power2.out",
     });
 
-    gsap.from('.testimonial-content', {
+    gsap.from(".testimonial-content", {
       opacity: 0,
       x: -30,
       duration: 0.6,
       delay: 0.3,
-      ease: 'power2.out',
+      ease: "power2.out",
     });
   }, [activeIndex]);
 
@@ -78,13 +79,18 @@ const Testimonials = () => {
   };
 
   const handlePrev = () => {
-    setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setActiveIndex(
+      (prev) => (prev - 1 + testimonials.length) % testimonials.length
+    );
   };
 
   const currentTestimonial = testimonials[activeIndex];
 
   return (
-    <section id="testimonials" className="relative min-h-screen py-20 overflow-hidden">
+    <section
+      id="testimonials"
+      className="relative min-h-screen py-20 overflow-hidden"
+    >
       {/* Background Orbs */}
       <div className="testimonial-orb testimonial-orb-1"></div>
       <div className="testimonial-orb testimonial-orb-2"></div>
@@ -92,9 +98,7 @@ const Testimonials = () => {
       <div className="container mx-auto px-5 relative z-10">
         <div className="text-center mb-16">
           <p className="testimonial-badge">Testimonials</p>
-          <h2 className="testimonial-heading">
-            What People Say
-          </h2>
+          <h2 className="testimonial-heading">What People Say</h2>
           <p className="testimonial-subheading">
             Feedback from colleagues and clients I've worked with
           </p>
@@ -103,14 +107,12 @@ const Testimonials = () => {
         <div className="testimonial-card">
           <div className="testimonial-content">
             <div className="quote-icon">"</div>
-            
-            <p className="testimonial-text">
-              {currentTestimonial.text}
-            </p>
+
+            <p className="testimonial-text">{currentTestimonial.text}</p>
 
             <div className="testimonial-author">
-              <img 
-                src={currentTestimonial.image} 
+              <img
+                src={currentTestimonial.image}
                 alt={currentTestimonial.name}
                 className="author-image"
               />
@@ -124,7 +126,7 @@ const Testimonials = () => {
 
           <div className="testimonial-navigation">
             <button onClick={handlePrev} className="nav-btn">
-              <img src="/images/left-arrow.png" alt="Previous" />
+              <ArrowLeft size={16} />
             </button>
 
             <div className="testimonial-dots">
@@ -132,14 +134,14 @@ const Testimonials = () => {
                 <button
                   key={index}
                   onClick={() => setActiveIndex(index)}
-                  className={`dot ${index === activeIndex ? 'active' : ''}`}
+                  className={`dot ${index === activeIndex ? "active" : ""}`}
                   aria-label={`Go to testimonial ${index + 1}`}
                 />
               ))}
             </div>
 
             <button onClick={handleNext} className="nav-btn">
-              <img src="/images/right-arrow.png" alt="Next" />
+              <ArrowRight size={16} />
             </button>
           </div>
         </div>

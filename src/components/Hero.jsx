@@ -115,9 +115,9 @@ const Hero = () => {
           {/* <img src="/images/arrow.png" alt="arrow" className="arrow" /> */}
 
           <div className="content">
-            <div className="space-y-5 hidden md:block">
+            <div className="space-y-5 md:block">
               <p>Frontend Developer. React Engineer.</p>
-              <p className="subtitle">
+              <p>
                 Building Fast <br /> Responsive Experiences
               </p>
             </div>
