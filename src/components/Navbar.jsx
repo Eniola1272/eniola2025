@@ -24,6 +24,15 @@ const Navbar = () => {
     );
   });
 
+  const handleDownloadCV = () => {
+    const link = document.createElement("a");
+    link.href = "/documents/Eniola_Aderounmu_CV.pdf";
+    link.download = "Eniola_Aderounmu_CV.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <nav>
       <div>
@@ -37,6 +46,11 @@ const Navbar = () => {
               <a href={`#${link.id}`}>{link.title}</a>
             </li>
           ))}
+          <li>
+            <button onClick={handleDownloadCV} className="download-cv-btn">
+              Download CV
+            </button>
+          </li>
         </ul>
       </div>
     </nav>
