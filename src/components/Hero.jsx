@@ -37,6 +37,15 @@ const Hero = () => {
       delay: 1,
     });
 
+    // Animate profile picture on mobile
+    gsap.from(".profile-pic", {
+      opacity: 0,
+      scale: 0.8,
+      duration: 1.2,
+      delay: 0.5,
+      ease: "back.out(1.7)",
+    });
+
     // Animate tech icons
     gsap.from(".tech-icon", {
       opacity: 0,
@@ -80,16 +89,21 @@ const Hero = () => {
   return (
     <>
       <section id="hero" className="noisy">
+        {/* Profile Picture - Mobile Only */}
+        <div className="profile-pic md:hidden">
+          <img src="/images/eniola-profile.jpg" alt="Eniola Aderounmu" />
+        </div>
+
         <h1 className="title flex flex-col">
           ENIOLA <span className="small-text">ADEROUNMU</span>
         </h1>
+        
         {/* Glowing Orbs Background */}
         <div className="orb orb-1"></div>
         <div className="orb orb-2"></div>
         <div className="orb orb-3"></div>
 
         {/* Tech Stack Icons */}
-
         <img
           src="/icons/react-icon.svg"
           alt="React"
@@ -112,8 +126,6 @@ const Hero = () => {
         />
 
         <div className="body">
-          {/* <img src="/images/arrow.png" alt="arrow" className="arrow" /> */}
-
           <div className="content">
             <div className="space-y-5 md:block">
               <p>Frontend Developer. React Engineer.</p>
@@ -123,7 +135,7 @@ const Hero = () => {
             </div>
 
             <div className="view-projects">
-              <p className="subtitle">
+              <p>
                 I create modern web applications using React, Next.js, and the
                 MERN stack — crafting seamless user interfaces that blend
                 functionality with elegant design.

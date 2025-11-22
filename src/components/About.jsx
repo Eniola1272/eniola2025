@@ -81,8 +81,8 @@ const About = () => {
         </div>
 
         <div className="md:col-span-3">
-          <div className="noisy" />
-          <img src="/images/mercylandhomecare.jpg" alt="Mercy Land Home Care" />
+          <div/>
+          <img src="/images/eniola-profile.jpg" alt="Eniola" />
         </div>
       </div>
 

@@ -14,7 +14,7 @@ const testimonials = [
   },
   {
     id: 2,
-    name: "David Ogunleye",
+    name: "Raman Arunsi",
     role: "Founder",
     company: "Evolve Labs",
     image: "/images/testimonial-2.jpg",
