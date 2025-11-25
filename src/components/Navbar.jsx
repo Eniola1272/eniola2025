@@ -26,8 +26,8 @@ const Navbar = () => {
 
   const handleDownloadCV = () => {
     const link = document.createElement("a");
-    link.href = "/documents/Eniola_Aderounmu_CV.pdf";
-    link.download = "Eniola_Aderounmu_CV.pdf";
+    link.href = "/documents/Resume_CV_ENIOLA_ADEROUNMU.docx";
+    link.download = "Resume_CV_ENIOLA_ADEROUNMU.docx";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
