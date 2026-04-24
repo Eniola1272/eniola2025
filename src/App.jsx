@@ -4,11 +4,11 @@ import { ScrollTrigger, SplitText } from "gsap/all";
 import Navbar from "./components/Navbar.jsx";
 import Hero from "./components/Hero.jsx";
 import About from "./components/About.jsx";
-import Menu from "./components/Menu.jsx";
 import Contact from "./components/Contact.jsx";
 import Skills from "./components/Skills.jsx";
 import Work from "./components/Work.jsx";
 import Testimonials from "./components/Testimonials.jsx";
+import Portfolio from "./components/Portfolio.jsx";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -20,8 +20,8 @@ const App = () => {
       <Skills />
       <About />
       <Work />
-      <Menu />
-	  <Testimonials />
+      <Portfolio />
+      <Testimonials />
       <Contact />
     </main>
   );

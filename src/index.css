@@ -981,4 +981,134 @@ body {
       @apply mb-12;
     }
   }
+
+  /* View All Projects Button */
+  .view-all-projects-btn {
+    @apply px-8 py-4 rounded-full font-semibold text-base cursor-pointer transition-all duration-300;
+    background: rgba(139, 92, 246, 0.08);
+    border: 1.5px solid rgba(139, 92, 246, 0.45);
+    color: rgba(255, 255, 255, 0.9);
+
+    &:hover {
+      background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+      border-color: transparent;
+      box-shadow: 0 10px 30px -5px rgba(139, 92, 246, 0.5);
+      transform: translateY(-2px);
+      color: white;
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  /* Modal Overlay */
+  .projects-modal-overlay {
+    @apply fixed inset-0 z-50 flex items-center justify-center p-4;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  /* Modal Container */
+  .projects-modal {
+    @apply w-full max-w-3xl flex flex-col rounded-3xl overflow-hidden;
+    max-height: 85vh;
+    background: linear-gradient(160deg, #0d0d1f 0%, #141428 100%);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    box-shadow:
+      0 25px 60px -12px rgba(139, 92, 246, 0.35),
+      0 0 0 1px rgba(255, 255, 255, 0.04);
+  }
+
+  /* Modal Header */
+  .modal-header {
+    @apply flex justify-between items-start p-6 flex-shrink-0;
+    border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+
+    h3 {
+      @apply font-modern-negra text-2xl md:text-3xl;
+      background: linear-gradient(135deg, #a78bfa 0%, #ec4899 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .modal-count {
+      @apply text-sm text-gray-400 mt-1;
+    }
+
+    button {
+      @apply w-9 h-9 flex items-center justify-center rounded-full cursor-pointer transition-all flex-shrink-0 mt-1;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      color: white;
+
+      &:hover {
+        background: rgba(139, 92, 246, 0.2);
+        border-color: rgba(139, 92, 246, 0.6);
+      }
+    }
+  }
+
+  /* Modal Scrollable Body */
+  .modal-body {
+    @apply overflow-y-auto p-6 space-y-8;
+
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba(139, 92, 246, 0.4);
+      border-radius: 4px;
+    }
+  }
+
+  /* Category Label */
+  .modal-category-title {
+    @apply text-xs uppercase tracking-widest font-bold mb-3 px-1;
+    color: rgba(167, 139, 250, 0.7);
+  }
+
+  .modal-projects-list {
+    @apply space-y-2;
+  }
+
+  /* Project Row */
+  .modal-project-row {
+    @apply flex items-center justify-between w-full px-4 py-3 rounded-xl transition-all duration-200 no-underline;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color: white;
+
+    &:hover {
+      background: rgba(139, 92, 246, 0.12);
+      border-color: rgba(139, 92, 246, 0.35);
+      transform: translateX(6px);
+    }
+
+    .project-row-name {
+      @apply font-semibold text-sm md:text-base text-white;
+    }
+
+    .project-row-subtitle {
+      @apply text-xs mt-0.5;
+      color: rgba(156, 163, 175, 0.75);
+    }
+
+    svg {
+      @apply flex-shrink-0 transition-all duration-200;
+      color: rgba(139, 92, 246, 0.5);
+    }
+
+    &:hover svg {
+      color: rgba(167, 139, 250, 1);
+      transform: translateX(2px);
+    }
+  }
 }

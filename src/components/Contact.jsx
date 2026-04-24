@@ -53,7 +53,7 @@ const Contact = () => {
             rel="noopener noreferrer"
             className="text-purple-400 hover:text-purple-300 transition-colors"
           >
-            View Full Portfolio →
+            Chat With Eniola →
           </a>
         </div>
         

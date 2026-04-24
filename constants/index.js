@@ -180,19 +180,267 @@ const allProjects = [
       "Clean, professional corporate site showcasing services and expertise, built with WordPress and optimized for performance and SEO.",
     link: "https://avalanchetechsolutions.net/",
   },
+  {
+    id: 6,
+    name: "Chrisema",
+    image: "/images/portfolio/chrisemart.jpg",
+    title: "E-Commerce for Used Goods",
+    description:
+      "Full-featured marketplace with dedicated seller and buyer dashboards, built with Next.js and TypeScript. Features ShadCN UI components and complete API integrations for a seamless trading experience.",
+    link: "https://chrisemart.com/",
+  },
+  {
+    id: 7,
+    name: "Horace",
+    image: "/images/portfolio/horacelearning.jpg",
+    title: "LMS Platform",
+    description:
+      "Comprehensive learning management system built with Next.js and TypeScript, featuring MUI components and API integrations. Includes a dedicated student portal at portal.horacelearning.com.",
+    link: "https://www.horacelearning.com/",
+  },
+  {
+    id: 8,
+    name: "Olayemi Foundation",
+    image: "/images/portfolio/olaf.jpg",
+    title: "Charity Organization Website",
+    description:
+      "Charity organization website built with Next.js and TypeScript, featuring ShadCN UI, donation flows, program listings, and impact stories with full API integrations.",
+    link: "https://www.olayemiadeyemifoundation.com/",
+  },
+  {
+    id: 9,
+    name: "BOAJ Care",
+    image: "/images/portfolio/boaj.jpg",
+    title: "Healthcare Organization",
+    description:
+      "US-based healthcare organization website built with Next.js and TypeScript. Features ShadCN UI components, comprehensive service listings, and seamless API integrations.",
+    link: "https://www.boajcare.com/",
+  },
 ];
 
+const projectsList = [
+  {
+    category: "Platforms & Web Apps",
+    projects: [
+      {
+        name: "Course Masters",
+        subtitle: "E-Learning Platform",
+        link: "https://thecoursemasters-frontend.vercel.app/",
+      },
+      {
+        name: "Chrisema",
+        subtitle: "E-Commerce · Used Goods Marketplace",
+        link: "https://chrisemart.com/",
+      },
+      {
+        name: "Horace Learning",
+        subtitle: "LMS Platform",
+        link: "https://www.horacelearning.com/",
+      },
+      {
+        name: "Horace Portal",
+        subtitle: "LMS Student Dashboard",
+        link: "https://portal.horacelearning.com/",
+      },
+      {
+        name: "Habbode",
+        subtitle: "Property Platform",
+        link: "https://habbode-two.vercel.app/",
+      },
+      {
+        name: "Rental Website",
+        subtitle: "React · Vercel Project",
+        link: "https://rental-website-six.vercel.app/",
+      },
+    ],
+  },
+  {
+    category: "Healthcare",
+    projects: [
+      {
+        name: "Mercy Land Home Care",
+        subtitle: "Home Care Services",
+        link: "https://www.mercylandhomehealth.com/",
+      },
+      {
+        name: "BOAJ Care",
+        subtitle: "Healthcare Organization · USA",
+        link: "https://www.boajcare.com/",
+      },
+      {
+        name: "Hawaii Loa Care",
+        subtitle: "Home Care Services",
+        link: "https://hawaiiloacare.com/",
+      },
+      {
+        name: "Medicare GV",
+        subtitle: "Healthcare",
+        link: "https://medicaregv.com",
+      },
+    ],
+  },
+  {
+    category: "Real Estate & Rentals",
+    projects: [
+      {
+        name: "Vagabond",
+        subtitle: "Apartment Rentals",
+        link: "https://vagabond.ae/",
+      },
+      {
+        name: "TopSpot Properties",
+        subtitle: "Real Estate Listings",
+        link: "https://properties.topspothub.com/",
+      },
+      {
+        name: "Dreamscape Lodgings",
+        subtitle: "Vacation Rentals",
+        link: "https://dreamscapelodgings.com/",
+      },
+      {
+        name: "Mondo Rentals",
+        subtitle: "Rentals",
+        link: "http://mondorentals.com",
+      },
+      {
+        name: "MJ Rentals",
+        subtitle: "Rental Properties",
+        link: "https://mj-rentals.com",
+      },
+      {
+        name: "Casa Prive Group",
+        subtitle: "Luxury Rentals",
+        link: "https://casaprivegroup.com/",
+      },
+      {
+        name: "Seattle Hanai Properties",
+        subtitle: "Property Management",
+        link: "https://seattlehanaiproperties.com/",
+      },
+      {
+        name: "Noble Luxury Stays",
+        subtitle: "Luxury Vacation Rentals",
+        link: "https://nobleluxurystays.com/",
+      },
+      {
+        name: "Restoration Villa",
+        subtitle: "Vacation Home Rental",
+        link: "https://restorationvilla.com/",
+      },
+      {
+        name: "The Henlee Apartments",
+        subtitle: "Apartments",
+        link: "https://thehenleeapartments.com/",
+      },
+      {
+        name: "Leaf Peeper Point",
+        subtitle: "Vacation Rental",
+        link: "https://leafpeeperpoint.com",
+      },
+      {
+        name: "Altavilla Properties",
+        subtitle: "Real Estate",
+        link: "https://altavillaproperties.com/properties/",
+      },
+      {
+        name: "Kaz Residences",
+        subtitle: "Residential Properties",
+        link: "https://kazresidences.com/",
+      },
+      {
+        name: "Myrtle Beach Bums",
+        subtitle: "Vacation Rentals",
+        link: "https://myrtlebeachbums.com/",
+      },
+      {
+        name: "Extended Stays Home",
+        subtitle: "Extended Stay Rentals",
+        link: "https://extendedstayshome.com/",
+      },
+      {
+        name: "Deluxe Homes",
+        subtitle: "Property Management",
+        link: "https://www.deluxehomes.com/property-management/",
+      },
+      {
+        name: "Apartments Am Werdersee",
+        subtitle: "Apartments",
+        link: "https://apartmentsamwerdersee.com/a/",
+      },
+      {
+        name: "Casa Cheetah",
+        subtitle: "Vacation Rentals",
+        link: "https://casacheetah.com/",
+      },
+      {
+        name: "Bluvue Vacations",
+        subtitle: "Vacation Rentals",
+        link: "https://bluvuevacations.com/",
+      },
+      {
+        name: "Foresight Property Homes",
+        subtitle: "Real Estate",
+        link: "https://foresightpropertyhomes.com/",
+      },
+    ],
+  },
+  {
+    category: "Corporate & Business",
+    projects: [
+      {
+        name: "Avalanche Tech Solutions",
+        subtitle: "Corporate Website",
+        link: "https://avalanchetechsolutions.net/",
+      },
+      {
+        name: "WGA Constructions",
+        subtitle: "Construction · Nigeria",
+        link: "https://wgaconstructions.com.ng",
+      },
+      {
+        name: "Less Heat Tint",
+        subtitle: "Window Tinting Services",
+        link: "https://lessheattint.com/",
+      },
+      {
+        name: "Dluxe Shades",
+        subtitle: "Window Shades",
+        link: "https://dluxeshades.com/",
+      },
+      {
+        name: "Dias Sublimes",
+        subtitle: "Business",
+        link: "https://diassublimes.pt/",
+      },
+      {
+        name: "TopSpot (Design Prototype)",
+        subtitle: "Figma UI/UX Design",
+        link: "https://www.figma.com/proto/FjkWa9BvAH97VhKDYUbSws/TOPSPOT?node-id=31-223&t=3FMeVRLMFu4aRTt8-1&scaling=min-zoom&content-scaling=fixed&page-id=1%3A2&starting-point-node-id=31%3A223",
+      },
+    ],
+  },
+  {
+    category: "Non-Profit",
+    projects: [
+      {
+        name: "Olayemi Adeyemi Foundation",
+        subtitle: "Charity Organization",
+        link: "https://www.olayemiadeyemifoundation.com/",
+      },
+    ],
+  },
+];
 
 export {
-	navLinks,
-	frontendSkills,
-	backendSkills,
-	profileLists,
-	technicalStrengths,
-	softSkills,
-	contactInfo,
-	availability,
-	socials,
-	allProjects,
-
+  navLinks,
+  frontendSkills,
+  backendSkills,
+  profileLists,
+  technicalStrengths,
+  softSkills,
+  contactInfo,
+  availability,
+  socials,
+  allProjects,
+  projectsList,
 };

@@ -1,14 +1,15 @@
 "use client";
 
-import { allProjects } from "../../constants/index.js";
-import { useRef, useState } from "react";
+import { allProjects, projectsList } from "../../constants/index.js";
+import { useRef, useState, useEffect } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, X, ExternalLink } from "lucide-react";
 
-const Projects = () => {
+const Portfolio = () => {
   const contentRef = useRef();
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useGSAP(() => {
     gsap.fromTo("#title", { opacity: 0 }, { opacity: 1, duration: 1 });
@@ -20,7 +21,7 @@ const Projects = () => {
         opacity: 1,
         duration: 1,
         ease: "power2.out",
-      }
+      },
     );
     gsap.fromTo(
       ".details h2",
@@ -31,7 +32,7 @@ const Projects = () => {
         duration: 0.8,
         ease: "power2.out",
         delay: 0.2,
-      }
+      },
     );
     gsap.fromTo(
       ".details p",
@@ -42,9 +43,25 @@ const Projects = () => {
         duration: 0.8,
         ease: "power2.out",
         delay: 0.3,
-      }
+      },
     );
   }, [currentIndex]);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") setIsModalOpen(false);
+    };
+    if (isModalOpen) {
+      document.body.style.overflow = "hidden";
+      document.addEventListener("keydown", handleKeyDown);
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isModalOpen]);
 
   const totalProjects = allProjects.length;
 
@@ -62,6 +79,11 @@ const Projects = () => {
   const currentProject = getProjectAt(0);
   const prevProject = getProjectAt(-1);
   const nextProject = getProjectAt(1);
+
+  const totalProjectCount = projectsList.reduce(
+    (acc, cat) => acc + cat.projects.length,
+    0,
+  );
 
   return (
     <section id="projects" aria-labelledby="projects-heading">
@@ -146,8 +168,70 @@ const Projects = () => {
             </div>
           </div>
         </div>
+
+        {/* View All Projects Button */}
+        <div className="flex justify-center mt-16">
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="view-all-projects-btn"
+          >
+            View All {totalProjectCount}+ Projects
+          </button>
+        </div>
       </div>
+
+      {/* Projects Modal */}
+      {isModalOpen && (
+        <div
+          className="projects-modal-overlay"
+          onClick={() => setIsModalOpen(false)}
+        >
+          <div
+            className="projects-modal"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="modal-header">
+              <div>
+                <h3>All Projects</h3>
+                <p className="modal-count">
+                  {totalProjectCount}+ projects delivered
+                </p>
+              </div>
+              <button onClick={() => setIsModalOpen(false)} aria-label="Close">
+                <X size={18} />
+              </button>
+            </div>
+
+            <div className="modal-body">
+              {projectsList.map((category) => (
+                <div key={category.category} className="modal-category">
+                  <p className="modal-category-title">{category.category}</p>
+                  <div className="modal-projects-list">
+                    {category.projects.map((project) => (
+                      <a
+                        key={project.name + project.link}
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="modal-project-row"
+                      >
+                        <div>
+                          <p className="project-row-name">{project.name}</p>
+                          <p className="project-row-subtitle">
+                            {project.subtitle}
+                          </p>
+                        </div>
+                        <ExternalLink size={15} />
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
-export default Projects;
+export default Portfolio;
