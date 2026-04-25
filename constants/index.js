@@ -21,32 +21,32 @@ const frontendSkills = [
   {
     name: "React js",
     category: "Framework",
-    experience: "4+ years",
+    experience: "5+ years",
   },
   {
     name: "Next js",
     category: "Framework",
-    experience: "3+ years",
+    experience: "4+ years",
   },
   {
     name: "JavaScript",
     category: "Language",
-    experience: "5+ years",
+    experience: "6+ years",
   },
   {
     name: "TypeScript",
     category: "Language",
-    experience: "2+ years",
+    experience: "3+ years",
   },
   {
     name: "TailwindCSS",
     category: "Styling",
-    experience: "4+ years",
+    experience: "5+ years",
   },
   {
     name: "WordPress",
     category: "CMS",
-    experience: "6+ years",
+    experience: "7+ years",
   },
 ];
 
@@ -54,22 +54,22 @@ const backendSkills = [
   {
     name: "Node js",
     category: "Runtime",
-    experience: "3+ years",
+    experience: "4+ years",
   },
   {
     name: "Express js",
     category: "Framework",
-    experience: "3+ years",
+    experience: "4+ years",
   },
   {
     name: "MongoDB",
     category: "Database",
-    experience: "3+ years",
+    experience: "4+ years",
   },
   {
     name: "Python",
     category: "CMS",
-    experience: "3+ years",
+    experience: "4+ years",
   },
 ];
 

@@ -67,7 +67,7 @@ const Navbar = () => {
           stagger: 0.08,
           delay: 0.2,
           ease: "power2.out",
-        }
+        },
       );
     } else {
       menuRef.current.style.pointerEvents = "none";
@@ -81,8 +81,8 @@ const Navbar = () => {
 
   const handleDownloadCV = () => {
     const link = document.createElement("a");
-    link.href = "/documents/Resume_CV_ENIOLA_ADEROUNMU.docx";
-    link.download = "Resume_CV_ENIOLA_ADEROUNMU.docx";
+    link.href = "/documents/Resume_CV_ENIOLA_ADEROUNMU.pdf";
+    link.download = "Resume_CV_ENIOLA_ADEROUNMU.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

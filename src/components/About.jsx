@@ -58,7 +58,7 @@ const About = () => {
 
             <div>
               <p className="md:text-3xl text-xl font-bold">
-                <span>5+</span> Years
+                <span>6+</span> Years
               </p>
               <p className="text-sm text-white-100">Building web experiences</p>
             </div>
