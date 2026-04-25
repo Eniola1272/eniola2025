@@ -9,6 +9,7 @@ import Skills from "./components/Skills.jsx";
 import Work from "./components/Work.jsx";
 import Testimonials from "./components/Testimonials.jsx";
 import Portfolio from "./components/Portfolio.jsx";
+import WhatsAppFloat from "./components/WhatsAppFloat.jsx";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -23,6 +24,7 @@ const App = () => {
       <Portfolio />
       <Testimonials />
       <Contact />
+      <WhatsAppFloat />
     </main>
   );
 };
