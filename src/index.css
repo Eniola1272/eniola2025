@@ -68,7 +68,7 @@ body {
     @apply fixed z-50 w-full;
 
     & > div {
-      @apply flex flex-row justify-between items-center py-5 lg:px-0 px-5 container mx-auto;
+      @apply flex flex-row justify-between items-center py-5 px-5 lg:px-8 xl:px-0 container mx-auto;
     }
 
     p {
@@ -76,17 +76,17 @@ body {
     }
 
     a {
-      @apply cursor-pointer text-nowrap md:text-base text-sm;
+      @apply cursor-pointer text-nowrap lg:text-base text-sm;
     }
 
-    /* Desktop nav — hidden on mobile */
+    /* Desktop nav — hidden on mobile/tablet */
     .desktop-nav {
-      @apply hidden md:flex items-center lg:gap-12 gap-7;
+      @apply hidden lg:flex items-center xl:gap-12 gap-7;
     }
 
-    /* Hamburger button — visible only on mobile */
+    /* Hamburger button — visible on mobile + tablet */
     .hamburger-btn {
-      @apply md:hidden flex items-center justify-center w-10 h-10 rounded-lg cursor-pointer z-[60] relative;
+      @apply lg:hidden flex items-center justify-center w-10 h-10 rounded-lg cursor-pointer z-[60] relative;
       background: rgba(139, 92, 246, 0.15);
       border: 1px solid rgba(139, 92, 246, 0.3);
       color: white;
@@ -98,13 +98,14 @@ body {
       }
     }
 
-    /* Mobile menu overlay */
+    /* Mobile/tablet menu overlay */
     .mobile-menu {
-      @apply fixed inset-0 z-[55] flex flex-col items-center justify-center md:hidden;
+      @apply fixed inset-0 z-[55] flex flex-col items-center justify-center lg:hidden;
       background: rgba(0, 0, 0, 0.95);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       clip-path: circle(0% at top right);
+      pointer-events: none;
 
       ul {
         @apply flex flex-col items-center gap-8;
@@ -153,7 +154,7 @@ body {
     /* background: linear-gradient(135deg, #02040c 0%, #1a1a2e 50%, #070a12 100%); */
 
     h1 {
-      @apply md:mt-32 mt-28 text-[15vw] sm:text-8xl md:text-[20vw] leading-none text-center font-modern-negra relative z-20;
+      @apply lg:mt-32 mt-28 text-[15vw] sm:text-8xl lg:text-[20vw] leading-none text-center font-modern-negra relative z-20;
     }
 
     /* Glowing Orbs */
@@ -237,8 +238,8 @@ body {
       right: 20%;
     }
 
-    /* Mobile adjustments */
-    @media (max-width: 768px) {
+    /* Mobile + tablet adjustments */
+    @media (max-width: 1023px) {
       .tech-icon {
         width: 40px;
         height: 40px;
@@ -254,7 +255,7 @@ body {
 
     /* Mobile Profile Image */
     .hero-profile-wrapper {
-      @apply flex flex-col items-center gap-4 relative z-20 mt-6 md:hidden;
+      @apply flex flex-col items-center gap-4 relative z-20 mt-6 lg:hidden;
     }
 
     .hero-profile {
@@ -263,7 +264,12 @@ body {
       height: 140px;
       border-radius: 50%;
       padding: 3px;
-      background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 50%, #3b82f6 100%);
+      background: linear-gradient(
+        135deg,
+        #8b5cf6 0%,
+        #ec4899 50%,
+        #3b82f6 100%
+      );
       box-shadow:
         0 0 30px rgba(139, 92, 246, 0.4),
         0 0 60px rgba(139, 92, 246, 0.15);
@@ -282,13 +288,13 @@ body {
     }
 
     .body {
-      @apply container mx-auto relative md:absolute md:left-1/2 md:-translate-x-1/2 lg:bottom-20 md:top-[30vh] flex justify-between items-end px-5 z-20 mt-8 md:mt-0;
+      @apply container mx-auto relative lg:absolute lg:left-1/2 lg:-translate-x-1/2 lg:bottom-20 lg:top-[30vh] flex justify-between items-end px-5 lg:px-8 xl:px-5 z-20 mt-8 lg:mt-0;
 
       .content {
         @apply flex lg:flex-row flex-col w-full gap-10 justify-between items-center lg:items-end mx-auto;
 
         p:nth-of-type(2) {
-          @apply font-modern-negra text-3xl sm:text-4xl md:text-6xl max-w-xl;
+          @apply font-modern-negra text-3xl sm:text-4xl lg:text-6xl max-w-xl;
           background: linear-gradient(135deg, #a78bfa 0%, #ec4899 100%);
           -webkit-background-clip: text;
           background-clip: text;
@@ -296,18 +302,22 @@ body {
         }
 
         p:last-of-type {
-          @apply 2xl:text-start text-center;
+          @apply lg:text-left text-center;
         }
 
         .view-projects {
-          @apply space-y-5 text-base md:text-lg lg:max-w-2xs md:max-w-xs w-full;
+          @apply space-y-5 text-base md:text-lg lg:max-w-2xs md:max-w-xs w-full flex flex-col md:items-start md:justify-start md:text-left sm:items-center sm:justify-center;
+
+          /* @apply space-y-5 text-base lg:text-lg xl:max-w-2xs lg:max-w-xs w-full flex flex-col items-center lg:items-start lg:justify-start md:text-left; */
 
           p {
             @apply text-center md:text-left text-gray-300 text-sm md:text-base leading-relaxed;
+
+            /* @apply lg:text-left text-gray-300 text-sm lg:text-base leading-relaxed md:text-left sm:px-6; */
           }
 
           a {
-            @apply font-semibold opacity-80 text-center transition-all inline-block px-6 py-3 rounded-full w-full md:w-auto text-sm md:text-base;
+            @apply font-semibold opacity-80 text-center lg:text-left transition-all inline-block px-6 py-3 rounded-full lg:w-auto text-sm lg:text-base;
             background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
             box-shadow: 0 10px 25px -5px rgba(139, 92, 246, 0.4);
 
@@ -904,6 +914,18 @@ body {
   }
 }
 
+@keyframes btnPulse {
+  0%,
+  100% {
+    border-color: rgba(139, 92, 246, 0.45);
+    box-shadow: 0 0 0 0 rgba(139, 92, 246, 0);
+  }
+  50% {
+    border-color: rgba(167, 139, 250, 0.75);
+    box-shadow: 0 0 12px 3px rgba(139, 92, 246, 0.12);
+  }
+}
+
 #projects {
   @apply relative w-full min-h-screen overflow-hidden;
   background: radial-gradient(
@@ -1060,6 +1082,7 @@ body {
     background: rgba(139, 92, 246, 0.08);
     border: 1.5px solid rgba(139, 92, 246, 0.45);
     color: rgba(255, 255, 255, 0.9);
+    animation: btnPulse 2.8s ease-in-out infinite;
 
     &:hover {
       background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
@@ -1067,6 +1090,7 @@ body {
       box-shadow: 0 10px 30px -5px rgba(139, 92, 246, 0.5);
       transform: translateY(-2px);
       color: white;
+      animation-play-state: paused;
     }
 
     &:active {

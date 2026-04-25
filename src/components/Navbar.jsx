@@ -1,4 +1,5 @@
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
 import { useGSAP } from "@gsap/react";
 import { useState, useEffect, useRef } from "react";
 import { useMediaQuery } from "react-responsive";
@@ -8,54 +9,49 @@ import { navLinks } from "../../constants/index.js";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const isMobile = useMediaQuery({ maxWidth: 767 });
+  const isMobile = useMediaQuery({ maxWidth: 1023 });
   const menuRef = useRef(null);
-  const hamburgerRef = useRef(null);
 
+  // Scroll-based nav background — triggers at 80px scroll, not on the fixed nav element
   useGSAP(() => {
-    const navTween = gsap.timeline({
-      scrollTrigger: {
-        trigger: "nav",
-        start: "bottom top",
-      },
+    ScrollTrigger.create({
+      start: 80,
+      onEnter: () =>
+        gsap.to("nav", {
+          backgroundColor: "#000000BB",
+          backdropFilter: "blur(12px)",
+          duration: 0.4,
+          overwrite: true,
+        }),
+      onLeaveBack: () =>
+        gsap.to("nav", {
+          backgroundColor: "transparent",
+          backdropFilter: "blur(0px)",
+          duration: 0.4,
+          overwrite: true,
+        }),
     });
-
-    navTween.fromTo(
-      "nav",
-      { backgroundColor: "transparent" },
-      {
-        backgroundColor: "#00000050",
-        backgroundFilter: "blur(10px)",
-        duration: 1,
-        ease: "power1.inOut",
-      }
-    );
   });
 
-  // Close mobile menu on route resize to desktop
+  // Close menu when resizing to desktop
   useEffect(() => {
-    if (!isMobile) {
-      setIsMenuOpen(false);
-    }
+    if (!isMobile) setIsMenuOpen(false);
   }, [isMobile]);
 
-  // Lock body scroll when menu is open
+  // Lock body scroll while menu is open
   useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    document.body.style.overflow = isMenuOpen ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
   }, [isMenuOpen]);
 
-  // Animate mobile menu
+  // Animate mobile menu in/out — toggle pointer-events so closed menu doesn't block page
   useEffect(() => {
     if (!menuRef.current) return;
 
     if (isMenuOpen) {
+      menuRef.current.style.pointerEvents = "auto";
       gsap.to(menuRef.current, {
         clipPath: "circle(150% at top right)",
         duration: 0.6,
@@ -74,6 +70,7 @@ const Navbar = () => {
         }
       );
     } else {
+      menuRef.current.style.pointerEvents = "none";
       gsap.to(menuRef.current, {
         clipPath: "circle(0% at top right)",
         duration: 0.4,
@@ -89,10 +86,6 @@ const Navbar = () => {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-  };
-
-  const handleNavClick = () => {
-    setIsMenuOpen(false);
   };
 
   return (
@@ -116,14 +109,13 @@ const Navbar = () => {
           </li>
         </ul>
 
-        {/* Hamburger Button */}
+        {/* Hamburger — mobile/tablet only */}
         <button
-          ref={hamburgerRef}
           className="hamburger-btn"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          onClick={() => setIsMenuOpen((prev) => !prev)}
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
@@ -132,7 +124,7 @@ const Navbar = () => {
         <ul>
           {navLinks.map((link) => (
             <li key={link.id} className="mobile-nav-link">
-              <a href={`#${link.id}`} onClick={handleNavClick}>
+              <a href={`#${link.id}`} onClick={() => setIsMenuOpen(false)}>
                 {link.title}
               </a>
             </li>
@@ -141,7 +133,7 @@ const Navbar = () => {
             <button
               onClick={() => {
                 handleDownloadCV();
-                handleNavClick();
+                setIsMenuOpen(false);
               }}
               className="download-cv-btn"
             >
