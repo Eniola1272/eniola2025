@@ -153,7 +153,15 @@ const Hero = () => {
             </div>
 
             <div className="view-projects">
-              <p className="subtitle">
+              {/* mobile: centered, hidden on lg+ */}
+              <p className="subtitle block lg:hidden text-center text-gray-300 text-sm md:text-base leading-relaxed">
+                I create modern web applications using React, Next.js, and the
+                MERN stack — crafting seamless user interfaces that blend
+                functionality with elegant design.
+              </p>
+              {/* desktop: left-aligned, hidden below lg */}
+              <p> </p>
+              <p className="subtitle hidden lg:block text-left text-gray-300 text-base leading-relaxed">
                 I create modern web applications using React, Next.js, and the
                 MERN stack — crafting seamless user interfaces that blend
                 functionality with elegant design.
