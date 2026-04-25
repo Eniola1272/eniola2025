@@ -75,6 +75,23 @@ const Hero = () => {
         from: "random",
       },
     });
+    // Animate mobile profile image
+    if (document.querySelector(".hero-profile-wrapper")) {
+      gsap.from(".hero-profile", {
+        scale: 0,
+        opacity: 0,
+        duration: 1.2,
+        delay: 0.3,
+        ease: "back.out(1.7)",
+      });
+      gsap.from(".hero-role-tag", {
+        opacity: 0,
+        y: 20,
+        duration: 0.8,
+        delay: 1,
+        ease: "power2.out",
+      });
+    }
   }, []);
 
   return (
@@ -83,6 +100,19 @@ const Hero = () => {
         <h1 className="title flex flex-col">
           ENIOLA <span className="small-text">ADEROUNMU</span>
         </h1>
+
+        {/* Mobile Profile Image */}
+        <div className="hero-profile-wrapper">
+          <div className="hero-profile">
+            <img
+              src="/eniola.jpg"
+              alt="Eniola Aderounmu"
+              className="hero-profile-img"
+            />
+          </div>
+          <p className="hero-role-tag">Frontend Developer</p>
+        </div>
+
         {/* Glowing Orbs Background */}
         <div className="orb orb-1"></div>
         <div className="orb orb-2"></div>

@@ -58,7 +58,7 @@ const Skills = () => {
           <ul>
             {backendSkills.map(({ name, category, experience }) => (
               <li key={name}>
-                <div className="me-28">
+                <div className="md:me-28">
                   <h3>{name}</h3>
                   <p>
                     {category} | {experience}
